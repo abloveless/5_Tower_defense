@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour {
 
-    [SerializeField] Color exploredColor;
+
 
     // ok as is a data class
     public bool isExplored = false;
@@ -14,13 +14,7 @@ public class Waypoint : MonoBehaviour {
 
     Vector2Int gridPos;
 
-    private void Update()
-    {
-        if (isExplored)
-        {
-            SetTopColor(exploredColor);
-        }
-    }
+
 
     public int GetGridSize()
     {

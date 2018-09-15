@@ -10,7 +10,8 @@ public class PathFinder : MonoBehaviour {
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
     Queue<Waypoint> queue = new Queue<Waypoint>();
     bool isRunning = true; 
-    Waypoint searchCenter; // the current search center
+    Waypoint searchCenter;
+    List<Waypoint> path = new List<Waypoint>();
 
     Vector2Int[] directions =
     {
@@ -20,15 +21,33 @@ public class PathFinder : MonoBehaviour {
         Vector2Int.left
     };
 
-	// Use this for initialization
-	void Start () {
+    public List<Waypoint> GetPath()
+    {
         LoadBlocks();
         ColorStartAndEnd();
-        PathFind();
-        // ExploreNeighbors();
-	}
+        BreadthFirstSearch();
+        CreatePath();
+        return path;
+    }
 
-    private void PathFind()
+    private void CreatePath()
+    {
+        path.Add(endWaypoint);
+
+        Waypoint previous = endWaypoint.exploredFrom;
+        while (previous != startWaypoint) 
+        {
+            path.Add(previous);
+            previous = previous.exploredFrom;
+        }
+        path.Add(startWaypoint);
+        path.Reverse();
+
+        // add start waypoint
+        // reverse the list
+    }
+
+    private void BreadthFirstSearch()
     {
         queue.Enqueue(startWaypoint);
         while(queue.Count > 0 && isRunning)
@@ -38,15 +57,12 @@ public class PathFinder : MonoBehaviour {
             ExploreNeighbors();
             searchCenter.isExplored = true;
         }
-        // todo work out the path
-        print("Finished pathfinding?");
     }
 
     private void HaltIfEndFound()
     {
         if (searchCenter == endWaypoint)
         {
-            print("Searching from end node, therefor stopping"); // todo remove log later
             isRunning = false;
         }
     }
@@ -58,15 +74,10 @@ public class PathFinder : MonoBehaviour {
         foreach (Vector2Int direction in directions)
         {
             Vector2Int neighborCoordinates = searchCenter.GetGridPos() + direction;
-            try
+            if (grid.ContainsKey(neighborCoordinates))
             {
                 QueueNewNeighbors(neighborCoordinates);
-            }
-            catch
-            {
-                // do nothing
-            }
-            
+            } 
         }
     }
 
@@ -87,6 +98,7 @@ public class PathFinder : MonoBehaviour {
 
     private void ColorStartAndEnd()
     {
+        // todo consider moving to waypoint
         startWaypoint.SetTopColor(Color.green);
         endWaypoint.SetTopColor(Color.red);
     }
