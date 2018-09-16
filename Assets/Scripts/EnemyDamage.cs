@@ -17,7 +17,6 @@ public class EnemyDamage : MonoBehaviour {
 
     void OnParticleCollision(GameObject other)
     {
-        print("Bullets hit something");
         ProcessHit();
         if (hitPoints <= 0)
         {
@@ -35,7 +34,6 @@ public class EnemyDamage : MonoBehaviour {
 
     private void KillEnemy()
     {
-        print("Enemy dead");
         Destroy(gameObject);
     }
 
