@@ -3,21 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class EnemyDamage : MonoBehaviour {
 
     [SerializeField] int hits = 10;
     [SerializeField] GameObject bulletFX;
+    [SerializeField] Collider collisionMesh;
 
     // Use this for initialization
     void Start () {
-        AddBoxCollider();
 	}
 
-    private void AddBoxCollider()
-    {
-        Collider boxCollider = gameObject.AddComponent<BoxCollider>(); // generate Box Collider
-        boxCollider.isTrigger = false; // set box collider trigger to false
-    }
+    
 
     void OnParticleCollision(GameObject other)
     {
@@ -37,6 +33,7 @@ public class Enemy : MonoBehaviour {
 
     private void ProcessHit()
     {
+        Instantiate(bulletFX, transform.position, Quaternion.identity);
         hits = hits - 1;
         // todo consider hit FX
     }
