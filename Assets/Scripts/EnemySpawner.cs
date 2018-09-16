@@ -9,7 +9,6 @@ public class EnemySpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Instantiate(enemyPrefab);
         StartCoroutine(SpawnEnemies());
 	}
 	
