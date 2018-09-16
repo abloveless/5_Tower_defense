@@ -5,12 +5,12 @@ using UnityEngine;
 public class Waypoint : MonoBehaviour {
 
     // ok as is a data class
+    [SerializeField] Tower towerPrefab;
     public bool isExplored = false;
     public Waypoint exploredFrom;
     public bool isPlaceable = true;
 
     const int gridSize = 10;
-
     Vector2Int gridPos;
 
     public int GetGridSize()
@@ -32,7 +32,8 @@ public class Waypoint : MonoBehaviour {
         {
             if (isPlaceable)
             {
-                print("Turrent placed at " + gameObject.name);
+                isPlaceable = false;
+                Instantiate(towerPrefab, transform.position, Quaternion.identity);
             }
             else
             {
