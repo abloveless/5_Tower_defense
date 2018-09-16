@@ -34,6 +34,7 @@ public class EnemyDamage : MonoBehaviour {
 
     private void KillEnemy()
     {
+        print("Destroying");
         Destroy(gameObject);
     }
 

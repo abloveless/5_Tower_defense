@@ -165,6 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12c82ec77d6c1d844bcbacc8a8017cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 10
+  hitPoints: 1
   bulletFX: {fileID: 1406600034861448, guid: 7977172df77792f46ac4272467b1932d, type: 2}
   collisionMesh: {fileID: 65949332335308980}
