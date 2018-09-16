@@ -9,6 +9,7 @@ public class Tower : MonoBehaviour {
     [SerializeField] float attackRange = 10f;
     [SerializeField] ParticleSystem projectileParticle;
 
+
     // State of each towers
     Transform targetEnemy;
 
@@ -70,5 +71,6 @@ public class Tower : MonoBehaviour {
     {
         var emissionModule = projectileParticle.emission;
         emissionModule.enabled = isActive;
+
     }
 }
