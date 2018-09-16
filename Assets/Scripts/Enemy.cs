@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     [SerializeField] int hits = 10;
+    [SerializeField] GameObject bulletFX;
 
     // Use this for initialization
     void Start () {
