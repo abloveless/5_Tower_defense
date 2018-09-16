@@ -3,20 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class EnemyDamage : MonoBehaviour {
 
     [SerializeField] int hitPoints = 10;
     [SerializeField] GameObject bulletFX;
     [SerializeField] Collider collisionMesh;
+    [SerializeField] public AudioClip projectileImpactSFX;
 
+    AudioSource audioSource;
+   
     // Use this for initialization
-    void Start () {
-	}
+    void Start ()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     
 
     void OnParticleCollision(GameObject other)
     {
+        audioSource.Stop();
+        audioSource.PlayOneShot(projectileImpactSFX);
         ProcessHit();
         if (hitPoints <= 0)
         {
