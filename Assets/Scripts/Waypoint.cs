@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour {
 
-
-
     // ok as is a data class
     public bool isExplored = false;
     public Waypoint exploredFrom;
@@ -13,8 +11,6 @@ public class Waypoint : MonoBehaviour {
     const int gridSize = 10;
 
     Vector2Int gridPos;
-
-
 
     public int GetGridSize()
     {
@@ -29,9 +25,9 @@ public class Waypoint : MonoBehaviour {
         );
     }
 
-    public void SetTopColor(Color color)
+    void OnMouseOver()
     {
-        MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
-        topMeshRenderer.material.color = color;
+        //If your mouse hovers over the GameObject with the script attached, output this message
+        Debug.Log("Mouse is over block:" + gameObject.name);
     }
 }
