@@ -9,22 +9,22 @@ public class EnemyDamage : MonoBehaviour {
     [SerializeField] int hitPoints = 10;
     [SerializeField] GameObject bulletFX;
     [SerializeField] Collider collisionMesh;
-    [SerializeField] public AudioClip projectileImpactSFX;
+    // [SerializeField] public AudioClip projectileImpactSFX;
 
-    AudioSource audioSource;
+    // AudioSource audioSource;
    
     // Use this for initialization
     void Start ()
     {
-        audioSource = GetComponent<AudioSource>();
+       // audioSource = GetComponent<AudioSource>();
     }
 
     
 
     void OnParticleCollision(GameObject other)
     {
-        audioSource.Stop();
-        audioSource.PlayOneShot(projectileImpactSFX);
+       // audioSource.Stop();
+       // audioSource.PlayOneShot(projectileImpactSFX);
         ProcessHit();
         if (hitPoints <= 0)
         {
