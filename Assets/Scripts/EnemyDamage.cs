@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour {
 
-    [SerializeField] int hits = 10;
+    [SerializeField] int hitPoints = 10;
     [SerializeField] GameObject bulletFX;
     [SerializeField] Collider collisionMesh;
 
@@ -19,10 +19,18 @@ public class EnemyDamage : MonoBehaviour {
     {
         print("Bullets hit something");
         ProcessHit();
-        if (hits <= 0)
+        if (hitPoints <= 0)
         {
             KillEnemy();
         }
+    }
+
+    
+    private void ProcessHit()
+    {
+        Instantiate(bulletFX, transform.position, Quaternion.identity);
+        hitPoints = hitPoints - 1;
+        // todo consider hit FX
     }
 
     private void KillEnemy()
@@ -31,12 +39,6 @@ public class EnemyDamage : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    private void ProcessHit()
-    {
-        Instantiate(bulletFX, transform.position, Quaternion.identity);
-        hits = hits - 1;
-        // todo consider hit FX
-    }
 
     // Update is called once per frame
     void Update () {
