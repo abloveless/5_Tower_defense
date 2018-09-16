@@ -775,15 +775,10 @@ Prefab:
         type: 2}
       propertyPath: targetEnemy
       value: 
-      objectReference: {fileID: 399766386}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9151447e6e4adc543a20374640e22c0a, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &399766386 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4630123839875120, guid: f545568e5aa412e4f96cdf8a47b6e8ae,
-    type: 2}
-  m_PrefabInternal: {fileID: 435848661}
 --- !u!4 &403999092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4320373430648300, guid: eaf585f6d1c526346860421fbfbc3de4,
@@ -900,53 +895,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed0a9cde8eae6e54fa0dec2ef4a95c2c, type: 2}
-  m_IsPrefabAsset: 0
---- !u!1001 &435848661
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1039826061}
-    m_Modifications:
-    - target: {fileID: 4630123839875120, guid: f545568e5aa412e4f96cdf8a47b6e8ae, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630123839875120, guid: f545568e5aa412e4f96cdf8a47b6e8ae, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630123839875120, guid: f545568e5aa412e4f96cdf8a47b6e8ae, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630123839875120, guid: f545568e5aa412e4f96cdf8a47b6e8ae, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630123839875120, guid: f545568e5aa412e4f96cdf8a47b6e8ae, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630123839875120, guid: f545568e5aa412e4f96cdf8a47b6e8ae, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630123839875120, guid: f545568e5aa412e4f96cdf8a47b6e8ae, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4630123839875120, guid: f545568e5aa412e4f96cdf8a47b6e8ae, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114724686412954668, guid: f545568e5aa412e4f96cdf8a47b6e8ae,
-        type: 2}
-      propertyPath: hitPoints
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f545568e5aa412e4f96cdf8a47b6e8ae, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &455672102 stripped
 Transform:
@@ -2013,8 +1961,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 399766386}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2952,7 +2899,7 @@ Prefab:
         type: 2}
       propertyPath: targetEnemy
       value: 
-      objectReference: {fileID: 399766386}
+      objectReference: {fileID: 0}
     - target: {fileID: 1068783192567598, guid: 9151447e6e4adc543a20374640e22c0a, type: 2}
       propertyPath: m_Name
       value: Tower (2)
@@ -3105,7 +3052,7 @@ Prefab:
         type: 2}
       propertyPath: targetEnemy
       value: 
-      objectReference: {fileID: 399766386}
+      objectReference: {fileID: 0}
     - target: {fileID: 1068783192567598, guid: 9151447e6e4adc543a20374640e22c0a, type: 2}
       propertyPath: m_Name
       value: Tower (1)
@@ -3426,7 +3373,7 @@ Prefab:
         type: 2}
       propertyPath: targetEnemy
       value: 
-      objectReference: {fileID: 399766386}
+      objectReference: {fileID: 0}
     - target: {fileID: 1068783192567598, guid: 9151447e6e4adc543a20374640e22c0a, type: 2}
       propertyPath: m_Name
       value: Tower (3)
