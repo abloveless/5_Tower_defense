@@ -403,7 +403,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoints: 10
-  bulletFX: {fileID: 198387359564656490}
+  hitParticlesPrefab: {fileID: 198387359564656490}
+  deathParticlePrefab: {fileID: 198537984209914932, guid: 1a51bfda454239a41afb7dee687c6ac0,
+    type: 2}
   collisionMesh: {fileID: 65598544800772234}
 --- !u!114 &114941686308246830
 MonoBehaviour:

@@ -7,7 +7,8 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour {
 
     [SerializeField] int hitPoints = 10;
-    [SerializeField] ParticleSystem bulletFX;
+    [SerializeField] ParticleSystem hitParticlesPrefab;
+    [SerializeField] ParticleSystem deathParticlePrefab;
     [SerializeField] Collider collisionMesh;
     // [SerializeField] public AudioClip projectileImpactSFX;
 
@@ -36,14 +37,16 @@ public class EnemyDamage : MonoBehaviour {
     private void ProcessHit()
     {
         hitPoints = hitPoints - 1;
-        bulletFX.Play();
+        hitParticlesPrefab.Play();
         
         // todo consider hit FX
     }
 
     private void KillEnemy()
     {
-        print("Destroying");
+        // important to instantiate before object destroyed
+        var vfx = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
+        vfx.Play();
         Destroy(gameObject);
     }
 
