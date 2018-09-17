@@ -7,7 +7,7 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour {
 
     [SerializeField] int hitPoints = 10;
-    [SerializeField] GameObject bulletFX;
+    [SerializeField] ParticleSystem bulletFX;
     [SerializeField] Collider collisionMesh;
     // [SerializeField] public AudioClip projectileImpactSFX;
 
@@ -35,8 +35,9 @@ public class EnemyDamage : MonoBehaviour {
     
     private void ProcessHit()
     {
-        Instantiate(bulletFX, transform.position, Quaternion.identity);
         hitPoints = hitPoints - 1;
+        bulletFX.Play();
+        
         // todo consider hit FX
     }
 
