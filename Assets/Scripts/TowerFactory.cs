@@ -5,31 +5,49 @@ using UnityEngine;
 public class TowerFactory : MonoBehaviour {
 
     [SerializeField] int towerLimit = 5;
-    int numTowers = 0;
+    
     [SerializeField] Tower towerPrefab;
+
+    Queue<Tower> towerQueue = new Queue<Tower>();
+    // todo create an empty queue of towers
 
     public void AddTower(Waypoint baseWaypoint)
     {
+        print(towerQueue.Count);
+        int numTowers = towerQueue.Count;
+
         if (numTowers < towerLimit)
         {
             InstantiateNewTower(baseWaypoint);
         }
         else
         {
-            MoveExistingTower();
+            MoveExistingTower(baseWaypoint);
         }
-    }
-
-    private static void MoveExistingTower()
-    {
-        print("Tower Limit Reached");
-        // todo actually move
     }
 
     private void InstantiateNewTower(Waypoint baseWaypoint)
     {
-        Instantiate(towerPrefab, baseWaypoint.transform.position, Quaternion.identity);
+
+        var newTower = Instantiate(towerPrefab, baseWaypoint.transform.position, Quaternion.identity);
         baseWaypoint.isPlaceable = false;
-        numTowers++;
+
+
+        // set the baseWaypoints
+        towerQueue.Enqueue(newTower);
+
     }
+
+    private void MoveExistingTower(Waypoint baseWaypoint)
+    {
+        var oldTower = towerQueue.Dequeue();
+
+        // set the placeable flags
+
+        // set the baseWaypoints
+
+        towerQueue.Enqueue(oldTower);
+    }
+
+
 }
