@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
 {
 
     [SerializeField] float movementPeriod = 0.5f;
-    [SerializeField] ParticleSystem explodeParticlePrefab;
+    [SerializeField] ParticleSystem goalParticle;
 
     // Use this for initialization
     void Start()
@@ -25,12 +25,12 @@ public class EnemyMovement : MonoBehaviour
             transform.position = waypoint.transform.position;
             yield return new WaitForSeconds(movementPeriod);
         }
-        DestroyEnemy();
+        SelfDestruct();
     }
 
-    private void DestroyEnemy()
+    private void SelfDestruct()
     {
-        var vfx = Instantiate(explodeParticlePrefab, transform.position, Quaternion.identity);
+        var vfx = Instantiate(goalParticle, transform.position, Quaternion.identity);
         vfx.Play();
         Destroy(vfx.gameObject, vfx.main.duration);
         Destroy(gameObject); // the enemy
