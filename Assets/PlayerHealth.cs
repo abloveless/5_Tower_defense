@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        GetComponent<AudioSource>().PlayOneShot(baseDamageSFX);
+        GetComponent<AudioSource>().PlayOneShot(baseDamageSFX); // use like this for single audio clips
         ProcessHit();
     }
 
