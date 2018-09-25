@@ -3,29 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
+
 public class EnemyDamage : MonoBehaviour {
 
     [SerializeField] int hitPoints = 10;
     [SerializeField] ParticleSystem hitParticlesPrefab;
     [SerializeField] ParticleSystem deathParticlePrefab;
     [SerializeField] Collider collisionMesh;
-    // [SerializeField] public AudioClip projectileImpactSFX;
+    [SerializeField] AudioClip enemyDamageSFX;
+    [SerializeField] AudioClip enemyDeathSFX;
 
-    // AudioSource audioSource;
-   
+    AudioSource myAudioSource;
+
     // Use this for initialization
     void Start ()
     {
-       // audioSource = GetComponent<AudioSource>();
+        myAudioSource = GetComponent<AudioSource>();
     }
 
     
 
     void OnParticleCollision(GameObject other)
     {
-       // audioSource.Stop();
-       // audioSource.PlayOneShot(projectileImpactSFX);
+
         ProcessHit();
         if (hitPoints <= 0)
         {
@@ -37,9 +37,8 @@ public class EnemyDamage : MonoBehaviour {
     private void ProcessHit()
     {
         hitPoints = hitPoints - 1;
+        myAudioSource.PlayOneShot(enemyDamageSFX);
         hitParticlesPrefab.Play();
-        
-        // todo consider hit FX
     }
 
     private void KillEnemy()
@@ -47,15 +46,7 @@ public class EnemyDamage : MonoBehaviour {
         // important to instantiate before object destroyed
         var vfx = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
         vfx.Play();
-
-
         Destroy(vfx.gameObject, vfx.main.duration);
         Destroy(gameObject); // the enemy
     }
-
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }
