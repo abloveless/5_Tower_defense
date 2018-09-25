@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementPeriod: 0.5
-  explodeParticlePrefab: {fileID: 198537984209914932, guid: 1a51bfda454239a41afb7dee687c6ac0,
+  goalParticle: {fileID: 198537984209914932, guid: 6d1dd15e48e11614d82d2ab949c13471,
     type: 2}
 --- !u!198 &198001923830845548
 ParticleSystem:
